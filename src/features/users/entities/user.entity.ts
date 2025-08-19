@@ -8,7 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { UserRole } from '../enums/user-role.enum';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 @Entity('users')
 export class UserEntity {
@@ -36,6 +36,9 @@ export class UserEntity {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @Column({ type: 'text', nullable: true })
+  refreshToken?: string | null;
 
   @CreateDateColumn()
   createdAt: Date;

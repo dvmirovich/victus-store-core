@@ -16,10 +16,10 @@ export class ProductReviewEntity {
   @ManyToOne(() => ProductEntity, (product) => product.id, {
     onDelete: 'CASCADE',
   })
-  productId: number;
+  product: number;
 
   @ManyToOne(() => UserEntity, (user) => user.id, { onDelete: 'CASCADE' })
-  userId: number;
+  user: number;
 
   @Column({ nullable: false })
   rating: number;

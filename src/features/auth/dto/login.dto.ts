@@ -5,7 +5,7 @@ export class LoginDto {
   @Matches(/^996\d{9}$/, {
     message: 'Неправильный формат номера телефона.',
   })
-  phone: string;
+  phoneNumber: string;
 
   @IsString()
   password: string;

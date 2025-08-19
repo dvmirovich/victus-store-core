@@ -17,7 +17,7 @@ export class OrderEntity {
   @ManyToOne(() => UserEntity, (user) => user.id, {
     onDelete: 'CASCADE',
   })
-  userId: number;
+  user: number;
 
   @Column({
     nullable: false,

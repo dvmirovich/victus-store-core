@@ -15,7 +15,7 @@ export class ShoppingCartEntity {
   @ManyToOne(() => UserEntity, (user) => user.id, {
     onDelete: 'CASCADE',
   })
-  userId: number;
+  user: number;
 
   @CreateDateColumn()
   createdAt: Date;

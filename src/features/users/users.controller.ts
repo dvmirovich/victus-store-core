@@ -8,7 +8,6 @@ import {
   Delete,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CrudRepository } from 'src/common/database/crud.repository';
 import { UserEntity } from './entities/user.entity';
 import { RegisterDto } from '../auth/dto/register.dto';
 

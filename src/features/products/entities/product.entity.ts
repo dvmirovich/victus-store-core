@@ -29,12 +29,12 @@ export class ProductEntity {
   price: number;
 
   @ManyToOne(() => BrandEntity, (brand) => brand.id, { nullable: false })
-  brandId: number;
+  brand: number;
 
   @ManyToOne(() => CategoryEntity, (category) => category.id, {
     nullable: false,
   })
-  categoryId: number;
+  category: number;
 
   @OneToMany(() => ProductPhotoEntity, (photo) => photo.product, {
     cascade: true,

@@ -17,12 +17,12 @@ export class OrderItemEntity {
   @ManyToOne(() => OrderEntity, (order) => order.id, {
     onDelete: 'CASCADE',
   })
-  orderId: number;
+  order: number;
 
   @ManyToOne(() => ProductEntity, (product) => product.id, {
     onDelete: 'CASCADE',
   })
-  productId: number;
+  product: number;
 
   @Column({ nullable: false })
   quantity: number;

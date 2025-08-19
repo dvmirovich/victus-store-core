@@ -24,6 +24,8 @@ import { UsersModule } from 'src/features/users/users.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: '.env',
+      expandVariables: true,
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

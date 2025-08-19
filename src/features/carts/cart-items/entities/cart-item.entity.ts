@@ -18,12 +18,12 @@ export class CartItemEntity {
   @ManyToOne(() => ShoppingCartEntity, (cart) => cart.id, {
     onDelete: 'CASCADE',
   })
-  cartId: number;
+  cart: number;
 
   @ManyToOne(() => ProductEntity, (product) => product.id, {
     onDelete: 'CASCADE',
   })
-  productId: number;
+  product: number;
 
   @Column({ nullable: false })
   quantity: number;
