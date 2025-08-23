@@ -11,7 +11,7 @@ import {
 } from 'typeorm';
 import { ProductEntity } from './product.entity';
 
-@Entity('cartItem')
+@Entity('cart_item')
 export class CartItemEntity {
   @PrimaryGeneratedColumn()
   id: number;
