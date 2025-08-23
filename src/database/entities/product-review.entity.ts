@@ -2,24 +2,27 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ProductEntity } from './product.entity';
-import { UserEntity } from 'src/features/users/entities/user.entity';
+import { UserEntity } from './user.entity';
 
 @Entity('reviews')
 export class ProductReviewEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => ProductEntity, (product) => product.id, {
+  @ManyToOne(() => ProductEntity, (product) => product.reviews, {
     onDelete: 'CASCADE',
   })
-  product: number;
+  @JoinColumn({ name: 'product_id' })
+  product: ProductEntity;
 
-  @ManyToOne(() => UserEntity, (user) => user.id, { onDelete: 'CASCADE' })
-  user: number;
+  @ManyToOne(() => UserEntity, (user) => user.reviews, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'user_id' })
+  user: UserEntity;
 
   @Column({ nullable: false })
   rating: number;
@@ -27,6 +30,6 @@ export class ProductReviewEntity {
   @Column({ nullable: false })
   comment: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 }

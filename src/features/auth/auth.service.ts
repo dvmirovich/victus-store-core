@@ -5,7 +5,6 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JWTPayload } from './interfaces/jwt-payload.interface';
-import { UserEntity } from '../users/entities/user.entity';
 import { RegisterDto } from './dto/register.dto';
 import { AuthResult } from './interfaces/auth-result.interface';
 import { LoginDto } from './dto/login.dto';
@@ -13,6 +12,7 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 
 import * as bcrypt from 'bcrypt';
+import { UserEntity } from 'src/database/entities/user.entity';
 @Injectable()
 export class AuthService {
   private logger = new Logger(AuthService.name);

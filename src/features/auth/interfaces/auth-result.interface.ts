@@ -1,4 +1,4 @@
-import { UserEntity } from 'src/features/users/entities/user.entity';
+import { UserEntity } from 'src/database/entities/user.entity';
 
 export interface AuthResult {
   user: Partial<UserEntity>;

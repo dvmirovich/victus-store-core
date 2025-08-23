@@ -1,10 +1,9 @@
 import { RegisterDto } from './../auth/dto/register.dto';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { UserEntity } from './entities/user.entity';
-
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UserEntity } from 'src/database/entities/user.entity';
 @Injectable()
 export class UsersService {
   constructor(
