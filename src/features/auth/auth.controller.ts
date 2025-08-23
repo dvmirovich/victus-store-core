@@ -7,11 +7,13 @@ import {
   Param,
   Delete,
   Logger,
+  UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -31,11 +33,13 @@ export class AuthController {
   }
 
   @Post('logout')
+  @UseGuards(AuthGuard('jwt'))
   async logout(@Body('userId') userId: number) {
     return this.authService.logout(userId);
   }
 
   @Post('refresh')
+  @UseGuards(AuthGuard('jwt'))
   async refreshTokens(@Body('refreshToken') refreshTokenDto: RefreshTokenDto) {
     return this.authService.refreshTokens(refreshTokenDto.refreshToken);
   }
