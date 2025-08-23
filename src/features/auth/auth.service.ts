@@ -12,7 +12,7 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 
 import * as bcrypt from 'bcrypt';
-import { UserEntity } from 'src/database/entities/user.entity';
+import { UserEntity } from 'src/infrastructure/database/entities/user.entity';
 @Injectable()
 export class AuthService {
   private logger = new Logger(AuthService.name);

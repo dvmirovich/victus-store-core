@@ -1,12 +1,12 @@
-import { UserEntity } from 'src/database/entities/user.entity';
-import { OrderStatus } from '../enums/order.enum';
+import { UserEntity } from 'src/infrastructure/database/entities/user.entity';
+import { EOrderStatus } from '../../../infrastructure/enums/order.enum';
 import { IsEnum, IsNumber, IsString } from 'class-validator';
 
 export class CreateOrderDto {
   user: UserEntity;
 
-  @IsEnum(OrderStatus)
-  status: OrderStatus;
+  @IsEnum(EOrderStatus)
+  status: EOrderStatus;
 
   @IsNumber()
   totalPrice: number;

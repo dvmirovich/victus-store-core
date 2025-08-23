@@ -2,7 +2,7 @@ import { CreateProductReviewDto } from './../dto/create-product-review.dto';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProductReviewEntity } from 'src/database/entities/product-review.entity';
+import { ProductReviewEntity } from 'src/infrastructure/database/entities/product-review.entity';
 import { UpdateProductReviewDto } from '../dto/update-product-review.dto';
 
 @Injectable()

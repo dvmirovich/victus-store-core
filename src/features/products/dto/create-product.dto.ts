@@ -1,6 +1,6 @@
 import { IsNumber, IsString, MinLength } from 'class-validator';
-import { BrandEntity } from 'src/database/entities/brand.entity';
-import { CategoryEntity } from 'src/database/entities/category.entity';
+import { BrandEntity } from 'src/infrastructure/database/entities/brand.entity';
+import { CategoryEntity } from 'src/infrastructure/database/entities/category.entity';
 
 export class CreateProductDto {
   @IsString()

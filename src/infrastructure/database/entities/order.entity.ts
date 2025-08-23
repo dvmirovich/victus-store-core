@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { UserEntity } from './user.entity';
-import { OrderStatus } from 'src/features/orders/enums/order.enum';
+import { EOrderStatus } from 'src/infrastructure/enums/order.enum';
 import { OrderItemEntity } from './order-item.entity';
 
 @Entity('orders')
@@ -26,9 +26,9 @@ export class OrderEntity {
   @Column({
     nullable: false,
     type: 'enum',
-    enum: OrderStatus,
+    enum: EOrderStatus,
   })
-  status: OrderStatus;
+  status: EOrderStatus;
 
   @Column({ nullable: false, name: 'total_price' })
   totalPrice: number;

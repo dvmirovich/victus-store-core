@@ -1,4 +1,4 @@
-import { dataSourceOptions } from './../database/data-source';
+import { dataSourceOptions } from '../infrastructure/database/data-source';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/features/auth/auth.module';

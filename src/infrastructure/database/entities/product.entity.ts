@@ -1,5 +1,5 @@
-import { BrandEntity } from 'src/database/entities/brand.entity';
-import { CategoryEntity } from 'src/database/entities/category.entity';
+import { BrandEntity } from 'src/infrastructure/database/entities/brand.entity';
+import { CategoryEntity } from 'src/infrastructure/database/entities/category.entity';
 import {
   Column,
   CreateDateColumn,
@@ -14,6 +14,7 @@ import { ProductPhotoEntity } from './product-photo.entity';
 import { ProductReviewEntity } from './product-review.entity';
 import { OrderItemEntity } from './order-item.entity';
 import { CartItemEntity } from './cart-item.entity';
+import { ProductAttributeEntity } from './product-attribute.entity';
 
 @Entity('products')
 export class ProductEntity {
@@ -55,6 +56,9 @@ export class ProductEntity {
 
   @OneToMany(() => CartItemEntity, (cartItem) => cartItem.product)
   cartItems: CartItemEntity[];
+
+  @OneToMany(() => ProductAttributeEntity, (attribute) => attribute.product)
+  attributes: ProductAttributeEntity;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

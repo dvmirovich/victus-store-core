@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { UserRoles } from 'src/features/users/enums/user-role.enum';
+import { EUserRoles } from 'src/infrastructure/enums/user-role.enum';
 import { ShoppingCartEntity } from './shopping-cart.entity';
 import { ProductReviewEntity } from './product-review.entity';
 import { OrderEntity } from './order.entity';
@@ -32,11 +32,11 @@ export class UserEntity {
   lastName: string;
 
   @Column({
-    enum: UserRoles,
+    enum: EUserRoles,
     type: 'enum',
-    default: UserRoles.USER,
+    default: EUserRoles.USER,
   })
-  role: UserRoles;
+  role: EUserRoles;
 
   @Column({ default: true, name: 'is_active' })
   isActive: boolean;

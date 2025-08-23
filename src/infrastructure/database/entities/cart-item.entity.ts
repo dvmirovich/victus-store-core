@@ -1,4 +1,4 @@
-import { ShoppingCartEntity } from 'src/database/entities/shopping-cart.entity';
+import { ShoppingCartEntity } from 'src/infrastructure/database/entities/shopping-cart.entity';
 import {
   Column,
   CreateDateColumn,
