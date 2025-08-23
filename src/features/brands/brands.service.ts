@@ -1,26 +1,39 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { BrandEntity } from 'src/database/entities/brand.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class BrandsService {
+  constructor(
+    @InjectRepository(BrandEntity)
+    private _crudRepo: Repository<BrandEntity>,
+  ) {}
+
   create(createBrandDto: CreateBrandDto) {
-    return 'This action adds a new brand';
+    this._crudRepo.create(createBrandDto);
+    return this._crudRepo.save(createBrandDto);
   }
 
   findAll() {
-    return `This action returns all brands`;
+    return this._crudRepo.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} brand`;
+    return this._crudRepo.findOne({
+      where: {
+        id: id,
+      },
+    });
   }
 
   update(id: number, updateBrandDto: UpdateBrandDto) {
-    return `This action updates a #${id} brand`;
+    return this._crudRepo.update(id, updateBrandDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} brand`;
+    return this._crudRepo.delete(id);
   }
 }

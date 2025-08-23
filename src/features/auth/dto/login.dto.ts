@@ -1,4 +1,4 @@
-import { IsEmail, IsString, Matches } from 'class-validator';
+import { IsEmail, IsString, Matches, MinLength } from 'class-validator';
 import { Transform } from 'class-transformer';
 
 export class LoginDto {
@@ -8,5 +8,6 @@ export class LoginDto {
   phoneNumber: string;
 
   @IsString()
+  @MinLength(1, { message: 'Пароль не должен быть пустым' })
   password: string;
 }

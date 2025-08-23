@@ -19,6 +19,12 @@ export class UsersController {
     return this.userService.findOneById;
   }
 
+  @Get(':number')
+  @Roles(UserRoles.ADMIN, UserRoles.MANAGER)
+  async findOneByNumber(@Param('number') phoneNumber: string) {
+    return this.userService.findOneByNumber(phoneNumber);
+  }
+
   @Get('block/:id')
   @Roles(UserRoles.ADMIN)
   async block(@Param('id') id: number) {
